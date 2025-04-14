@@ -1,71 +1,67 @@
-🧪 Python File Scanner MVP
+Python File Scanner MVP
 
-A terminal-based Python application that allows users to navigate directories, scan text files, and generate structured reports in various formats.​
-📌 Project Overview
+A terminal-based Python application for directory navigation, text file scanning, and multi-format report generation.
 
-This utility enables users to:​
+License: MIT
+Project Overview
 
-    Browse Directories: Navigate through the file system using an interactive interface.​
+This utility enables users to:
 
-    Select Files: Identify and process text files within the selected directory.​
+    Browse directories using an interactive interface
 
-    Generate Reports: Export the contents of scanned files into structured outputs such as .txt, .json, .csv, .pdf, and .epub.​
+    Scan text files with content detection
 
-The application leverages Python's curses library for the terminal UI and integrates third-party libraries like EbookLib, fpdf, and python-magic for advanced output handling.​
-✨ Features
-📁 Directory Navigation
+    Generate structured reports in multiple formats
 
-    Interactive browsing using arrow keys.​
+Features
+Directory Navigation
 
-    Navigate to parent directories and select target folders.​
+    Interactive browsing with arrow keys
 
-📄 File Scanning
+    Navigate parent directories and select folders
 
-    Automatically detects text files based on content.​
+    Cross-platform support (Unix/Linux, macOS, Windows)
 
-    Reads file contents up to a configurable size limit (default: 8KB).​
+File Scanning
 
-📝 Report Generation
+    Automatic text file detection based on content
 
-    Supports multiple output formats:​
+    Configurable file size limit (default: 8KB)
 
-        .txt: Plain text report with file paths and contents.​
+    Graceful error handling for permissions and unsupported formats
 
-        .json: Structured JSON representation of file data.​
+Report Generation
 
-        .csv: Tabular format with file paths and contents.​
+Supported Formats:
 
-        .pdf: PDF document with formatted file contents.​
+    .txt - Plain text with file paths and contents
 
-        .epub: E-book format for portable documentation.​
+    .json - Structured JSON representation
 
-    Includes a visual progress bar during processing.​
+    .csv - Tabular format for data analysis
 
-🎨 Interactive UI
+    .pdf - Formatted PDF documents
 
-    User-friendly terminal interface with color-coded elements.​
+    .epub - Portable e-book format
 
-    Displays headers, footers, and dynamic feedback (e.g., error messages, success notifications).​
+UI Features:
 
-⚠️ Error Handling
+    Color-coded terminal interface
 
-    Gracefully handles permission errors, unsupported formats, and invalid inputs.​
+    Progress visualization during processing
 
-    Provides clear feedback to the user via pop-up messages.​
+    Interactive pop-up messages and alerts
 
-🖥️ Cross-Platform Compatibility
-
-    Works on Unix-like systems (Linux, macOS) and Windows (requires windows-curses).​
-
-🧱 Project Structure
+Project Structure
+Copy
 
 file_scanner_mvp/
-├── application.py             # Main entry point for the application
+├── application.py             # Main entry point
 ├── config/
-│   └── settings.py            # Configuration settings
+│   └── settings.py            # Configuration
 ├── core/
 │   ├── file_scanner.py        # File detection logic
-│   └── navigator.py           # Directory navigation logic
+│   └── navigator.py           # Directory navigation
 ├── output_handlers/
 │   ├── csv_exporter.py
 │   ├── epub_exporter.py
@@ -78,67 +74,77 @@ file_scanner_mvp/
     ├── progress_ui.py
     └── view.py
 
-📦 Dependencies
-
-Install the required packages using:
+Dependencies
+Core Requirements
+Copy
 
 pip install -r requirements.txt
 
 Main Libraries:
 
-    curses / windows-curses – Terminal interface​
+    curses / windows-curses - Terminal interface
 
-    EbookLib – EPUB generation​
+    EbookLib - EPUB generation
 
-    fpdf – PDF generation​
+    fpdf - PDF creation
 
-    python-magic – File type detection​
+    python-magic - File type detection
 
-🚀 Getting Started
+Getting Started
 Prerequisites
 
-    Python 3.x​
+    Python 3.10+
 
-Running the Application
+    pip package manager
+
+Installation & Execution
+
+    Clone the repository:
+
+Copy
+
+git clone https://github.com/De3f4ault/Python_File_Scanner_1.git
+cd Python_File_Scanner_1/file_scanner_mvp
+
+    Install dependencies:
+
+Copy
+
+pip install -r requirements.txt
+
+    Run the application:
+
+Copy
 
 python application.py
 
-Follow the on-screen instructions to:
+Use Cases
 
-    Browse and select a directory.​
+    Code Audits: Scan source code directories for review
 
-    Choose an output format.​
+    Documentation: Create PDF/EPUB from text files
 
-    Export the scanned files.​
+    Data Extraction: Organize text into CSV/JSON
 
-📚 Use Cases
+    System Monitoring: Analyze logs and config files
 
-    Code Audits: Scan directories containing source code and generate reports for review.​
+Strengths
 
-    Documentation: Create .pdf or .epub documents from text files for offline reading.​
+    Modular architecture for easy extension
 
-    Data Extraction: Extract and organize text data into structured formats like .csv or .json.​
+    Customizable output handlers
 
-    System Monitoring: Scan logs or configuration files for troubleshooting or reporting.​
+    Intuitive curses-based UI
 
-🌟 Strengths
+    Configurable scanning parameters
 
-    Modularity: Each component (UI, file processing, output generation) is decoupled, making the codebase easy to extend and maintain.​
+Future Enhancements
 
-    Customizability: Users can add new output formats by implementing additional handlers in the output_handlers module.​
+    Add HTML/DOCX export support
 
-    User-Friendly: The curses-based UI provides an intuitive and responsive experience.​
+    Implement file content search
 
-🔮 Future Enhancements
+    Parallel processing for large directories
 
-    Additional Formats: Support for more output formats (e.g., .html, .docx).​
+    Graphical user interface (GUI)
 
-    Search Functionality: Allow users to search for specific keywords within files.​
-
-    Parallel Processing: Improve performance by processing files concurrently.​
-
-    GUI Version: Develop a graphical user interface for broader accessibility.​
-
-📄 License
-
-This project is licensed under the MIT License.
