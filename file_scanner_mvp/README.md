@@ -1,150 +1,180 @@
-Python File Scanner MVP
+# File Scanner
 
-A terminal-based Python application for directory navigation, text file scanning, and multi-format report generation.
+The **File Scanner** is a versatile, terminal-based Python utility designed to navigate directories, scan text files, and generate structured output reports in multiple formats (`.txt`, `.json`, `.csv`, `.pdf`, `.epub`). Its modular design, robust error handling, and support for customization make it an ideal tool for developers, analysts, and system administrators.
 
-License: MIT
-Project Overview
+---
 
-This utility enables users to:
+## Table of Contents
+1. [Features](#features)
+2. [Installation](#installation)
+3. [Usage](#usage)
+4. [Output Formats](#output-formats)
+5. [Customization](#customization)
+6. [Dependencies](#dependencies)
+7. [Contributing](#contributing)
+8. [License](#license)
 
-    Browse directories using an interactive interface
+---
 
-    Scan text files with content detection
+## Features
 
-    Generate structured reports in multiple formats
+- **Directory Navigation**:  
+  - Browse directories interactively using arrow keys or Vim-like keybindings (`hjkl`).
+  - Navigate back to parent directories and confirm selections seamlessly.
+  
+- **File Scanning**:  
+  - Automatically detects text files based on binary content checks.
+  - Reads file contents up to a configurable size limit (default: 8KB).
+  - Supports metadata extraction (e.g., file size, modification date).
 
-Features
-Directory Navigation
+- **Output Generation**:  
+  - Generate reports in various formats: `.txt`, `.json`, `.csv`, `.pdf`, `.epub`.
+  - Enhanced TXT output with line numbers, metadata, and better formatting.
+  - Customizable output templates (e.g., headers, footers).
 
-    Interactive browsing with arrow keys
+- **Progress Tracking**:  
+  - Real-time progress bar during scanning.
+  - Completion confirmation with full output path.
 
-    Navigate parent directories and select folders
+- **Error Handling**:  
+  - Prevents empty filenames and checks write permissions before saving.
+  - Displays errors clearly in the terminal UI.
 
-    Cross-platform support (Unix/Linux, macOS, Windows)
+- **Cross-Platform Compatibility**:  
+  - Works on Unix-like systems (Linux, macOS) and Windows (requires `windows-curses`).
 
-File Scanning
+---
 
-    Automatic text file detection based on content
+## Installation
 
-    Configurable file size limit (default: 8KB)
+### Prerequisites
+- Python 3.7 or higher.
+- Dependencies listed in `requirements.txt`.
 
-    Graceful error handling for permissions and unsupported formats
+### Steps
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/file-scanner.git
+   cd file-scanner
+   ```
 
-Report Generation
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-Supported Formats:
+   > **Note for Windows Users**: The `windows-curses` library is included as an optional dependency in `requirements.txt` and will only be installed on Windows systems.
 
-    .txt - Plain text with file paths and contents
+3. Run the application:
+   ```bash
+   python application.py
+   ```
 
-    .json - Structured JSON representation
+---
 
-    .csv - Tabular format for data analysis
+## Usage
 
-    .pdf - Formatted PDF documents
+1. **Navigate Directories**:
+   - Use arrow keys (`↑`, `↓`, `←`, `→`) or Vim-like keybindings (`hjkl`) to browse directories.
+   - Press `s` to confirm the selected directory for scanning.
 
-    .epub - Portable e-book format
+2. **Configure Output**:
+   - Enter a filename for the report (with validation).
+   - Choose an output format: `.txt`, `.json`, `.csv`, `.pdf`, or `.epub`.
+   - Select the save location interactively.
 
-UI Features:
+3. **Track Progress**:
+   - A real-time progress bar will display the scanning status.
+   - Upon completion, the full output path will be displayed.
 
-    Color-coded terminal interface
+4. **Verify Output**:
+   - Check the generated file in the chosen directory.
 
-    Progress visualization during processing
+---
 
-    Interactive pop-up messages and alerts
+## Output Formats
 
-Project Structure
-Copy
+- **TXT**:  
+  - Plain text report with file paths, contents, line numbers, and metadata.
+  - Includes a table of contents for easy navigation.
 
-file_scanner_mvp/
-├── application.py             # Main entry point
-├── config/
-│   └── settings.py            # Configuration
-├── core/
-│   ├── file_scanner.py        # File detection logic
-│   └── navigator.py           # Directory navigation
-├── output_handlers/
-│   ├── csv_exporter.py
-│   ├── epub_exporter.py
-│   ├── json_exporter.py
-│   ├── pdf_exporter.py
-│   └── txt_exporter.py
-├── tests/                     # Unit tests
-└── ui/
-    ├── base_ui.py
-    ├── progress_ui.py
-    └── view.py
+- **JSON**:  
+  - Structured JSON format with file paths and contents.
 
-Dependencies
-Core Requirements
-Copy
+- **CSV**:  
+  - Tabular format with columns for file paths and contents.
 
-pip install -r requirements.txt
+- **PDF**:  
+  - Professional PDF reports with customizable templates.
 
-Main Libraries:
+- **EPUB**:  
+  - eBook-friendly format for long-form content.
 
-    curses / windows-curses - Terminal interface
+---
 
-    EbookLib - EPUB generation
+## Customization
 
-    fpdf - PDF creation
+- **Settings**:  
+  Configure default settings in `config/settings.py`:
+  - Maximum file size for scanning (default: 8KB).
+  - Default output format (default: `.txt`).
+  - Output directory path.
 
-    python-magic - File type detection
+- **Output Templates**:  
+  Customize output templates by modifying handlers in `output_handlers/`.
 
-Getting Started
-Prerequisites
+- **Keyboard Shortcuts**:  
+  Add or modify keybindings in `ui/terminal_ui.py`.
 
-    Python 3.10+
+---
 
-    pip package manager
+## Dependencies
 
-Installation & Execution
+- `curses` (or `windows-curses` for Windows compatibility).
+- `python-magic` for file type detection.
+- `fpdf` for PDF generation.
+- `EbookLib` for EPUB generation.
+- Additional libraries for testing and advanced features.
 
-    Clone the repository:
+Refer to `requirements.txt` for the complete list of dependencies.
 
-Copy
+---
 
-git clone https://github.com/De3f4ault/Python_File_Scanner_1.git
-cd Python_File_Scanner_1/file_scanner_mvp
+## Contributing
 
-    Install dependencies:
+We welcome contributions! Here's how you can help:
 
-Copy
+1. **Report Bugs**: Open an issue with detailed steps to reproduce the problem.
+2. **Suggest Features**: Propose new features or improvements via issues.
+3. **Submit Pull Requests**: Fork the repository, make your changes, and submit a PR.
 
-pip install -r requirements.txt
+### Development Guidelines
+- Follow the existing code style and structure.
+- Write unit tests for new features.
+- Ensure cross-platform compatibility.
 
-    Run the application:
+---
 
-Copy
+## License
 
-python application.py
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-Use Cases
+---
 
-    Code Audits: Scan source code directories for review
+## Future Enhancements
 
-    Documentation: Create PDF/EPUB from text files
+- Support for additional output formats (e.g., `.html`, `.docx`).
+- Search functionality to find specific keywords within files.
+- Parallel processing for improved performance with large directories.
+- GUI version for broader accessibility.
 
-    Data Extraction: Organize text into CSV/JSON
+---
 
-    System Monitoring: Analyze logs and config files
+## Acknowledgments
 
-Strengths
+- Inspired by tools like LazyVim/Neovim for its intuitive navigation.
+- Built using open-source libraries like `curses`, `python-magic`, `fpdf`, and `EbookLib`.
 
-    Modular architecture for easy extension
+---
 
-    Customizable output handlers
-
-    Intuitive curses-based UI
-
-    Configurable scanning parameters
-
-Future Enhancements
-
-    Add HTML/DOCX export support
-
-    Implement file content search
-
-    Parallel processing for large directories
-
-    Graphical user interface (GUI)
-
+Feel free to reach out with questions, feedback, or feature requests! 🚀
