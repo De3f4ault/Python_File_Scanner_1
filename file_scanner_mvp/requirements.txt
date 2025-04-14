@@ -1,0 +1,7 @@
+# Core dependencies
+python-magic >= 0.4.27
+pytest >= 7.0
+
+
+# Platform-specific dependencies
+windows-curses; sys_platform == 'win32'
